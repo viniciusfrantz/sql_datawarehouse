@@ -1,0 +1,29 @@
+[0m11:23:54.565107 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001ACFE0B87A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001ACFEA8A240>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001ACFDFA2780>]}
+
+
+============================== 11:23:54.576719 | 09912025-6c89-483d-9187-59886dc95fc9 ==============================
+[0m11:23:54.576719 [info ] [MainThread]: Running with dbt=1.9.4
+[0m11:23:54.579159 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\vinic\\.dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'introspect': 'True', 'invocation_command': 'dbt init datawarehouse', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m11:23:54.631974 [debug] [MainThread]: Starter project path: C:\Users\vinic\.pyenv\pyenv-win\versions\3.12.7\Lib\site-packages\dbt\include\starter_project
+[0m11:23:54.695903 [info ] [MainThread]: 
+Your new dbt project "datawarehouse" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m11:23:54.695903 [info ] [MainThread]: Setting up your profile.
+[0m12:36:42.058192 [info ] [MainThread]: Profile datawarehouse written to C:\Users\vinic\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m12:36:42.066017 [debug] [MainThread]: Command `dbt init` succeeded at 12:36:42.065443 after 4367.84 seconds
+[0m12:36:42.068162 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001ACFE0B87A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC80828590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AC80CFCCE0>]}
+[0m12:36:42.070752 [debug] [MainThread]: Flushing usage events
+[0m12:36:42.779625 [debug] [MainThread]: An error was encountered while trying to flush usage events
