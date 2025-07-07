@@ -19,19 +19,19 @@
 
 
 01. Bronze Layer
->> Creating the database and schemas (scripts/00_db_schemas.sql)
+- Creating the database and schemas 
+    >> [scripts/00_db_schemas.sql]
 - Creating Bronze Layer
-    >> Analysing Source System
-        >> Business Context & Ownership
-        >> Architecture & Technology Stack: Postgres, Medallion 
-        >> Extract & Load: Full loads        
-    >> Coding to data ingestion: ddl and load
-        >>[Scripts/01_bronze_create_tables.sql]
-        >>[scripts/02_bronze_load.sql]
-
-    >> Validating: Data completeness & schema checks
-        >>[Scripts/03_quality_checks_bronze.sql]
-    >> Docs: Data documenting versioning in git
+- Analysing Source System
+    - Business Context & Ownership
+    - Architecture & Technology Stack: Postgres, Medallion 
+    - Extract & Load: Full loads        
+- Coding to data ingestion: ddl and load
+    >> [Scripts/01_bronze_create_tables.sql]
+    >> [scripts/02_bronze_load.sql]
+- Validating: Data completeness & schema checks
+    >> [Scripts/03_quality_checks_bronze.sql]
+- Docs: Data documenting versioning in git
 
 
 
