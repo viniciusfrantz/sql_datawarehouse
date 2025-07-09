@@ -1,0 +1,159 @@
+version: 2
+
+models:
+  - name: crm__cust_info
+    description: "Cleaned and standardized customer information from CRM, Silver layer"
+    columns:
+      - name: cst_id
+        description: "Customer ID"
+        data_type: integer
+        tests:
+          - not_null
+          - unique
+      - name: cst_key
+        description: "Customer key"
+        data_type: varchar
+        tests:
+          - not_null
+          - unique
+      - name: cst_first_name
+        description: "Customer first name, trimmed"
+        data_type: varchar
+        tests:
+          - not_null
+      - name: cst_last_name
+        description: "Customer last name, trimmed"
+        data_type: varchar
+        tests:
+          - not_null
+      - name: cst_marital_status
+        description: "Marital status standardized as Married, Single, or n/a"
+        data_type: varchar
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Married', 'Single', 'n/a']
+      - name: cst_gndr
+        description: "Gender standardized as Male, Female, or n/a"
+        data_type: varchar
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Male', 'Female', 'n/a']
+      - name: cst_create_date
+        description: "Customer creation date"
+        data_type: date
+        tests:
+          - not_null
+
+
+  - name: crm__prd_info
+    description: "Cleaned and standardized product information from CRM, Silver layer."
+    columns:
+      - name: prd_id
+        description: "Unique identifier of the product."
+        data_type: integer
+        tests:
+          - not_null
+          - is_unique
+
+      - name: prd_key_original
+        description: "Original product key as extracted from the CRM source table."
+        data_type: varchar
+        tests:
+          - not_null
+
+      - name: cat_id
+        description: "Category ID derived from the first 5 characters of prd_key, replacing '-' with '_'."
+        data_type: varchar
+        tests:
+          - not_null
+
+      - name: prd_key
+        description: "Product key derived from the substring after position 6 in prd_key."
+        data_type: varchar
+        tests:
+          - not_null
+
+      - name: prd_nm
+        description: "Product name trimmed to remove leading and trailing spaces."
+        data_type: varchar
+        tests:
+          - not_null
+
+      - name: prd_cost
+        description: "Product cost with nulls replaced by 0 to improve calculations."
+        data_type: float
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 0
+
+      - name: prd_line
+        description: "Standardized product line name. Mapped as: 'M'->Mountain, 'T'->Touring, 'S'->Sport, 'R'->Road, else 'n/a'."
+        data_type: varchar
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["Mountain", "Touring", "Sport", "Road", "n/a"]
+
+      - name: prd_start_dt
+        description: "Start date of the product validity period."
+        data_type: date
+        tests:
+          - not_null
+ 
+      - name: prd_end_dt
+        description: "End date of the product validity period, calculated as one day before the next start date within the same product key. Defaults to 9999-12-12 if no subsequent record exists."
+        data_type: date
+
+      - name: dwh_create_date
+        description: "Data warehouse metadata column indicating the timestamp when the record was created."
+
+
+  - name: crm__sales_details
+    description: "Cleaned and standardized sales details from CRM, Silver layer. Includes date formatting, sales and price corrections, and trimmed string fields."
+    columns:
+      - name: sls_ord
+        description: "Sales order number, trimmed to remove leading and trailing spaces."
+        data_type: string
+
+      - name: sls_prd_key
+        description: "Product key for the sold item, trimmed. Connects to 'crm__prd_info.prd_key' as a foreign key."
+        data_type: string
+        tests:
+          - not_null
+
+      - name: sls_cust_id
+        description: "Customer ID associated with the sales order."
+        data_type: integer
+        tests:
+          - not_null
+
+      - name: sls_order_dt
+        description: "Order date converted from numeric YYYYMMDD to DATE type. Null if value < 19000101."
+        data_type: date
+
+      - name: sls_ship_dt
+        description: "Shipping date converted from numeric YYYYMMDD to DATE type. Null if value < 19000101."
+        data_type: date
+
+      - name: sls_due_dt
+        description: "Due date converted from numeric YYYYMMDD to DATE type. Null if value < 19000101."
+        data_type: date
+
+      - name: sls_sales
+        description: "Sales amount. If original value is null, negative, or inconsistent with quantity * price, recalculated as quantity * ABS(price)."
+        data_type: float
+
+      - name: sls_price
+        description: "Unit price. Uses original price if positive; otherwise recalculated as sales / quantity."
+        data_type: float
+
+      - name: sls_quantity
+        description: "Quantity of items sold."
+        data_type: integer
+
+      - name: dwh_create_date
+        description: "Timestamp indicating when this record was created in the data warehouse."
+        data_type: timestamp

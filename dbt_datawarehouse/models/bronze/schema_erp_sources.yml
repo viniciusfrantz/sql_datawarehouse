@@ -1,0 +1,40 @@
+version: 2
+
+sources:
+  - name: ERP
+    description: "Raw tables ingested from ERP CSV source files into Bronze Layer"
+    database: datawarehouse
+    schema: bronze
+    ## Created using chatgpt, giving the ddl script:
+    ## Prompt: I made the ddl for bronze layer.. now I want to use that as source in dbt... 
+    ## so now, Create the source_schema_bronze with the descriptions of the tables on dbt... here is my ddl:....
+    tables:
+      - name: erp__cust_az12
+        description: "ERP customer information"
+        columns:
+          - name: cid
+            description: "Customer ID"
+          - name: bdate
+            description: "Birth date"
+          - name: gen
+            description: "Gender"
+
+      - name: erp__loc_a101
+        description: "ERP customer location"
+        columns:
+          - name: cid
+            description: "Customer ID"
+          - name: cntry
+            description: "Country"
+
+      - name: erp__px_cat_g1v2
+        description: "ERP product categories"
+        columns:
+          - name: id
+            description: "Product category ID"
+          - name: cat
+            description: "Category"
+          - name: subcat
+            description: "Subcategory"
+          - name: maintenence
+            description: "Maintenance required (Yes/No)"

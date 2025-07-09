@@ -1,0 +1,68 @@
+version: 2
+
+sources:
+  - name: crm
+    description: "Raw tables ingested from CRM CSV source files into Bronze Layer"
+    database: datawarehouse
+    schema: bronze
+    ## Created using chatgpt, giving the ddl script:
+    ## Prompt: I made the ddl for bronze layer.. now I want to use that as source in dbt... 
+    ## so now, Create the source_schema_bronze with the descriptions of the tables on dbt... here is my ddl:....
+    tables:
+      - name: crm__cust_info
+        description: "Customer information from CRM"
+        columns:
+          - name: cst_id
+            description: "Customer ID"
+          - name: cst_key
+            description: "Customer key"
+          - name: cst_first_name
+            description: "Customer first name"
+          - name: cst_lastname
+            description: "Customer last name"
+          - name: cst_marital_status
+            description: "Marital status"
+          - name: cst_gndr
+            description: "Gender"
+          - name: cst_create_date
+            description: "Customer creation date"
+
+      - name: crm__prd_info
+        description: "Product information from CRM"
+        columns:
+          - name: prd_id
+            description: "Product ID"
+          - name: prd_key
+            description: "Product key"
+          - name: prd_nm
+            description: "Product name"
+          - name: prd_cost
+            description: "Product cost"
+          - name: prd_line
+            description: "Product line"
+          - name: prd_start_dt
+            description: "Product start date"
+          - name: prd_end_dt
+            description: "Product end date"
+
+      - name: crm__sales_details
+        description: "Sales details"
+        columns:
+          - name: sls_ord
+            description: "Sales order number"
+          - name: sls_prd_key
+            description: "Product key"
+          - name: sls_cust_id
+            description: "Customer ID"
+          - name: sls_order_dt
+            description: "Order date"
+          - name: sls_ship_dt
+            description: "Shipping date"
+          - name: sls_due_dt
+            description: "Due date"
+          - name: sls_sales
+            description: "Sales value"
+          - name: sls_quantity
+            description: "Quantity sold"
+          - name: sls_price
+            description: "Unit price"
