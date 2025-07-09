@@ -1,4 +1,5 @@
 ## Project Data Engineering and Analytics
+
 ### Data Warehouse
 
 #### Integrating Sales Systems to provide Data ready to query 
@@ -17,6 +18,7 @@
 
 - **Gold Layer**: Preparation of data marts and business-focused tables.
 
+<img src="./Images/vinicius_dwh_project.jpg"  alt="Integration Model" width="400"/>
 
 ### 01. Bronze Layer
 - Creating the database and schemas 
@@ -44,4 +46,6 @@ The goal of this layer:
 
 ![Integration Model](./Images/integration_model.jpg)
 
-
+<div align="center">
+    <img src="./Images/integration_model.jpg" alt="Integration Model" width="300"/>
+</div>
