@@ -18,7 +18,7 @@
 - **Gold Layer**: Preparation of data marts and business-focused tables.
 
 
-01. Bronze Layer
+### 01. Bronze Layer
 - Creating the database and schemas 
     >> [scripts/00_db_schemas.sql]
 - Creating Bronze Layer
@@ -27,11 +27,20 @@
     - Architecture & Technology Stack: Postgres, Medallion 
     - Extract & Load: Full loads        
 - Coding to data ingestion: ddl and load
-    >> [Scripts/01_bronze_create_tables.sql]
+    >> [Scripts/01_bronze_create_tables.sql]  
     >> [scripts/02_bronze_load.sql]
 - Validating: Data completeness & schema checks
     >> [Scripts/03_quality_checks_bronze.sql]
 - Docs: Data documenting versioning in git
 
 
+## Integrating DBT:
+- Created a new schema [src_schema_bronze.yml] to use like "source" and documentation to dbt
 
+### 02. Silver Layer
+The goal of this layer:
+
+- Understand How the tables connect to each other, to do this, using the 6 tables from sources was made the data integration model, understanding the keys that can connect each table
+![Integration Model](Images\integration_model.jpg)
+
+.git
