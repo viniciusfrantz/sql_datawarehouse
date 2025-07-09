@@ -41,6 +41,7 @@
 The goal of this layer:
 
 - Understand How the tables connect to each other, to do this, using the 6 tables from sources was made the data integration model, understanding the keys that can connect each table
-![Integration Model](Images\integration_model.jpg)
 
-.git
+![Integration Model](./Images/integration_model.jpg)
+
+
