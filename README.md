@@ -18,7 +18,9 @@
 
 - **Gold Layer**: Preparation of data marts and business-focused tables.
 
-<img src="./Images/vinicius_dwh_project.jpg"  alt="Integration Model" width="400"/>
+<div align="center">
+<img src="./Images/vinicius_dwh_project.jpg"  alt="Integration Model" width="600"/>
+</div>
 
 ### 01. Bronze Layer
 - Creating the database and schemas 
@@ -44,8 +46,6 @@ The goal of this layer:
 
 - Understand How the tables connect to each other, to do this, using the 6 tables from sources was made the data integration model, understanding the keys that can connect each table
 
-![Integration Model](./Images/integration_model.jpg)
-
 <div align="center">
-    <img src="./Images/integration_model.jpg" alt="Integration Model" width="300"/>
+    <img src="./Images/integration_model.jpg" alt="Integration Model" width="600"/>
 </div>
