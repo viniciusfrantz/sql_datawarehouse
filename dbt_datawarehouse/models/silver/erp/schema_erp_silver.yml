@@ -1,0 +1,84 @@
+version: 2
+
+models:
+  
+  - name: erp__cust_az12
+    description: "Cleaned and standardized customer data from ERP source."
+    columns:
+      - name: cid
+        description: "Cleaned customer ID. If the original ID has 13 characters, removes the first 3 characters; else keeps it as is."
+        data_type: varchar
+        tests:
+          - not_null
+          - unique
+
+      - name: bdate
+        description: "Birth date of the customer. If the birth date is in the future, replaced by NULL."
+        data_type: date
+
+      - name: gen
+        description: "Standardized gender field. Mapped as 'M' or 'MALE' -> Male, 'F' or 'FEMALE' -> Female, else 'n/a'."
+        data_type: varchar
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["Male", "Female", "n/a"]
+
+      - name: dwh_create_date
+        description: "Data warehouse metadata column indicating the timestamp when the record was created."
+        data_type: timestamp
+        tests:
+          - not_null
+
+
+  - name: erp__loc_a101
+    description: "Cleaned and standardized customer location data from ERP source."
+    columns:
+      - name: cid
+        description: "Customer ID with hyphens removed for standardization."
+        data_type: varchar
+        tests:
+          - not_null
+          - unique
+
+      - name: cntry
+        description: "Standardized country field. Maps 'US', 'USA', 'UNITED STATES' to 'United States'; 'DE', 'GERMANY' to 'Germany'; empty or NULL to 'n/a'; else trims the original value."
+        data_type: varchar
+        tests:
+          - not_null
+          
+      - name: dwh_create_date
+        description: "Data warehouse metadata column indicating the timestamp when the record was created."
+        data_type: timestamp
+        tests:
+          - not_null
+
+
+  - name: erp__px_cat_g1v2
+    description: "Cleaned and standardized product category data from ERP source."
+    columns:
+      - name: id
+        description: "Standardized ID. Maps 'CO_PD' to 'CO_PE'; else keeps the original ID."
+        data_type: varchar
+        tests:
+          - not_null
+
+      - name: cat
+        description: "Product category name."
+        data_type: varchar
+        tests:
+          - not_null
+
+      - name: subcat
+        description: "Product subcategory name."
+        data_type: varchar
+
+      - name: maintenence
+        description: "Maintenance field."
+        data_type: varchar
+
+      - name: dwh_create_date
+        description: "Data warehouse metadata column indicating the timestamp when the record was created."
+        data_type: timestamp
+        tests:
+          - not_null

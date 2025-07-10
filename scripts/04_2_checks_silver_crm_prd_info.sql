@@ -158,3 +158,13 @@ SELECT
         DATE('9999-12-12')
     )  AS prd_end_dt
 FROM bronze.crm__prd_info
+
+
+SELECT 
+    COUNT(*),
+    prd_id
+FROM silver.crm__prd_info
+GROUP BY prd_id
+HAVING COUNT(*)>1
+
+

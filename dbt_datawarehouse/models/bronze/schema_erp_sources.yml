@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: ERP
+  - name: erp
     description: "Raw tables ingested from ERP CSV source files into Bronze Layer"
     database: datawarehouse
     schema: bronze
