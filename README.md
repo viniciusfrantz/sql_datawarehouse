@@ -24,20 +24,27 @@
 
 ### 01. Bronze Layer
 - Creating the database and schemas.
+```
     - [scripts/00_db_schemas.sql]
+```
 - Creating Bronze Layer
 - Analysing Source Systems
     - Business Context & Ownership
     - Architecture & Technology Stack: Postgres, Medallion 
     - Extract & Load: Full loads        
 - Coding to data ingestion: DDL and load
+```
     - [Scripts/01_1_ddl_bronze.sql]  
     - [scripts/01_2_proc_load_bronze.sql]
+```
 - Validating: Data completeness & schema checks
+```
     - [Scripts/01_3_quality_checks_bronze.sql]
+```
 - Documentation: Data versioning in git
 
-## Integrating DBT:
+#### Integrating DBT:
+
 - Created a new schema [src_schema_bronze.yml] to use as a "source" and documentation in dbt
 
 ### 02. Silver Layer
@@ -60,7 +67,7 @@ The goal of this layer:
     - |04_06_checks_silver_erp_px_cat_g1v2.sql
 ```
 
-### DBT Silver models by source
+### DBT - Silver models by source
 ```
 - dbt_datawarehouse\models\silver
     - \crm
@@ -88,7 +95,7 @@ The goal of this layer:
 - Aggregated objects
 - Flat tables
 
-### DBT Gold models
+### DBT - Gold models
 ```
 - dbt_datawarehouse\models\gold
     - |dim_customers.sql
