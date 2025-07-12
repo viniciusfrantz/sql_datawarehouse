@@ -1,3 +1,6 @@
+{{ config(
+    tags=["silver"]
+) }}
 
 WITH cte AS
 (SELECT * FROM {{source('crm','crm__prd_info')}})

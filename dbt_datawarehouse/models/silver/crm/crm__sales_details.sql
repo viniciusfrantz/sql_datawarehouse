@@ -1,3 +1,7 @@
+{{ config(
+    tags=["silver"]
+) }}
+
 WITH silver_crm__sales_detals AS
 (
 SELECT * 

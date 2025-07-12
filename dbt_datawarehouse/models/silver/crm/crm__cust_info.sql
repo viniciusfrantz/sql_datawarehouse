@@ -1,3 +1,6 @@
+{{ config(
+    tags=["silver"]
+) }}
 WITH check_duplicates AS
 (
 SELECT

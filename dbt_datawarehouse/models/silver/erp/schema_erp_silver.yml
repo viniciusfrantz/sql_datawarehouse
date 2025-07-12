@@ -4,6 +4,7 @@ models:
   
   - name: erp__cust_az12
     description: "Cleaned and standardized customer data from ERP source."
+    tags: ["silver"]
     columns:
       - name: cid
         description: "Cleaned customer ID. If the original ID has 13 characters, removes the first 3 characters; else keeps it as is."
@@ -33,6 +34,7 @@ models:
 
   - name: erp__loc_a101
     description: "Cleaned and standardized customer location data from ERP source."
+    tags: ["silver"]
     columns:
       - name: cid
         description: "Customer ID with hyphens removed for standardization."
@@ -56,6 +58,7 @@ models:
 
   - name: erp__px_cat_g1v2
     description: "Cleaned and standardized product category data from ERP source."
+    tags: ["silver"]
     columns:
       - name: id
         description: "Standardized ID. Maps 'CO_PD' to 'CO_PE'; else keeps the original ID."

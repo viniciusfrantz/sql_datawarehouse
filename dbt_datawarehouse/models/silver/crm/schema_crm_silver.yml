@@ -3,6 +3,9 @@ version: 2
 models:
   - name: crm__cust_info
     description: "Cleaned and standardized customer information from CRM, Silver layer"
+    database: datawarehouse
+    schema: silver
+    tags: ["silver"]
     columns:
       - name: cst_id
         description: "Customer ID"
@@ -49,6 +52,7 @@ models:
 
   - name: crm__prd_info
     description: "Cleaned and standardized product information from CRM, Silver layer."
+    tags: ["silver"]
     columns:
       - name: prd_id
         description: "Unique identifier of the product."
@@ -113,6 +117,7 @@ models:
 
   - name: crm__sales_details
     description: "Cleaned and standardized sales details from CRM, Silver layer. Includes date formatting, sales and price corrections, and trimmed string fields."
+    tags: ["silver"]
     columns:
       - name: sls_ord
         description: "Sales order number, trimmed to remove leading and trailing spaces."
