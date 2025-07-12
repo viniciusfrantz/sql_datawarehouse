@@ -49,3 +49,61 @@ The goal of this layer:
 <div align="center">
     <img src="./Images/integration_model.jpg" alt="Integration Model" width="500"/>
 </div>
+
+
+GOLD LAYER 
+Dimension Table
+- 
+
+Fact Table
+- crm_sales_details
+
+- Star Schema
+- Aggregated objects
+- Flat tables
+
+
+
+```mermaid
+erDiagram
+    DIM_CUSTOMERS {
+        integer customer_id PK "Primary Key"
+        string customer_key
+        string first_name
+        string last_name
+        string country
+        string marital_status
+        string gender
+        date birth_date
+        date create_date
+    }
+
+    DIM_PRODUCTS {
+        integer product_id PK "Primary Key"
+        string product_key
+        string category_id
+        string product_name
+        string category
+        string subcategory
+        string maintenance
+        string product_line
+        float product_cost
+        date product_start_date
+        date product_end_date
+    }
+
+    FACT_SALES {
+        string order_number PK "Primary Key"
+        integer customer_id FK "FK to DIM_CUSTOMERS"
+        integer product_id FK "FK to DIM_PRODUCTS"
+        date order_date
+        date ship_date
+        date due_date
+        integer quantity
+        float price
+        float sales_amount
+    }
+
+    FACT_SALES }|--|| DIM_CUSTOMERS : "customer_id"
+    FACT_SALES }|--|| DIM_PRODUCTS : "product_id"
+```
