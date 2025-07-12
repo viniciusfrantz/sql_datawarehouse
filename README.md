@@ -4,16 +4,13 @@
 #### About this project
 I built this project using modern data engineering tools to integrate different sales data sources into a single, reliable warehouse. My goal was to create clean and organized data that’s ready for analysis and helps drive better business decisions.
 
-#### Highlights:
-- Built using PostgreSQL and dbt following medallion architecture (Bronze, Silver, Gold layers)
-
-- Integrated ERP and CRM data sources, mastering CRM as the system of record
-
-- Designed star schemas and dimensional models for analytical reporting
-
-- Automated ETL pipelines with dbt models, ensuring scalable and maintainable code
-
-- Ensured data quality validation, schema checks, and version control with Git
+### Tools & Skills
+- dbt: Data modeling, transformation, documentation, and quality checks
+- SQL: Data extraction, cleaning, and transformation queries
+- PostgreSQL: Database design, implementation, and optimization
+- Git: Version control for code and data pipeline scripts
+- Data Engineering: ETL pipeline development, medallion architecture, star schema design
+- Data Integration: Combining multiple data sources into a unified warehouse
 
 #### Integrating Sales Systems to provide Data ready for querying 
 
@@ -22,6 +19,8 @@ I built this project using modern data engineering tools to integrate different 
 - The objective is to develop a modern data warehouse to consolidate sales data and enable analytical reporting
 
 - The project uses 2 sources of data, the ERP and CRM systems. The master system is CRM. The data is provided as CSV files.
+
+- Automated ETL pipelines with dbt models, ensuring scalable and maintainable code
 
 - The project will use the medallion architecture, using the 3 layers: Bronze, Silver and Gold.
 
