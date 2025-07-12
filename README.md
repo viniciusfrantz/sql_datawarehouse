@@ -50,6 +50,7 @@ The goal of this layer:
 </div>
 
 ### Scripts to construct, clean, standarize, normalize eache table:
+```
 - |scripts\02_silver
     - |4_1_checks_silver_crm_cust_info.sql
     - |04_2_checks_silver_crm_prd_info.sql
@@ -57,8 +58,10 @@ The goal of this layer:
     - |04_4_checks_silver_erp_az212.sql
     - |04_5_checks_silver_erp_loc_a101.sql
     - |04_06_checks_silver_erp_px_cat_g1v2.sql
+```
 
 ### DBT Silver models by source
+```
 - dbt_datawarehouse\models\silver
     - \crm
         - |crm__cust_info.sql
@@ -70,7 +73,7 @@ The goal of this layer:
         - |erp__loc_a101.sql
         - |erp__px_cat_g1v2.sql
         - |schema_erp_silver.yml
-
+```
 
 ### 03. Gold Layer
 
@@ -86,11 +89,13 @@ The goal of this layer:
 - Flat tables
 
 ### DBT Gold models
+```
 - dbt_datawarehouse\models\gold
     - |dim_customers.sql
     - |dim_products.sql
     - |fact_sales.sql
     - |schema_gold.yml
+```
 
 ### Final Dbt Lineage Graph
 
