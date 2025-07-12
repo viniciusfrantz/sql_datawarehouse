@@ -12,22 +12,15 @@ I built this project using modern data engineering tools to integrate different 
 - Data Engineering: ETL pipeline development, medallion architecture, star schema design
 - Data Integration: Combining multiple data sources into a unified warehouse
 
-#### Integrating Sales Systems to provide Data ready for querying 
+## Integrating Sales Systems to provide Data ready for querying 
 
 ### Building the Data Warehouse
 
-- The objective is to develop a modern data warehouse to consolidate sales data and enable analytical reporting
-
 - The project uses 2 sources of data, the ERP and CRM systems. The master system is CRM. The data is provided as CSV files.
-
 - Automated ETL pipelines with dbt models, ensuring scalable and maintainable code
-
 - The project will use the medallion architecture, using the 3 layers: Bronze, Silver and Gold.
-
 - **Bronze Layer**: The data will be loaded as-is
-
 - **Silver Layer**: Cleaning, standardization and normalization to prepare data for analysis.
-
 - **Gold Layer**: Preparation of data marts and business-focused tables.
 
 <div align="center">
