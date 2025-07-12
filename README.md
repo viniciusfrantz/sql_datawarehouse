@@ -1,6 +1,19 @@
-## Project Data Engineering and Analytics
+## Project Data Engineering and Analytics pipeline
 
-### Data Warehouse
+### Data Warehouse for Sales Analytics
+#### About this project
+I built this project using modern data engineering tools to integrate different sales data sources into a single, reliable warehouse. My goal was to create clean and organized data that’s ready for analysis and helps drive better business decisions.
+
+#### Highlights:
+- Built using PostgreSQL and dbt following medallion architecture (Bronze, Silver, Gold layers)
+
+- Integrated ERP and CRM data sources, mastering CRM as the system of record
+
+- Designed star schemas and dimensional models for analytical reporting
+
+- Automated ETL pipelines with dbt models, ensuring scalable and maintainable code
+
+- Ensured data quality validation, schema checks, and version control with Git
 
 #### Integrating Sales Systems to provide Data ready for querying 
 
@@ -22,24 +35,24 @@
 <img src="./Images/vinicius_dwh_project.jpg"  alt="Integration Model" width="600"/>
 </div>
 
-### 01. Bronze Layer
+## 01. Bronze Layer
 - Creating the database and schemas.
 ```
-    - [scripts/00_db_schemas.sql]
+    - |scripts/00_db_schemas.sql
 ```
 - Creating Bronze Layer
-- Analysing Source Systems
+- Analyzing Source Systems
     - Business Context & Ownership
     - Architecture & Technology Stack: Postgres, Medallion 
     - Extract & Load: Full loads        
-- Coding to data ingestion: DDL and load
+- Coding for data ingestion: DDL and load
 ```
-    - [Scripts/01_1_ddl_bronze.sql]  
-    - [scripts/01_2_proc_load_bronze.sql]
+    - |Scripts/01_1_ddl_bronze.sql
+    - |scripts/01_2_proc_load_bronze.sql
 ```
 - Validating: Data completeness & schema checks
 ```
-    - [Scripts/01_3_quality_checks_bronze.sql]
+    - |Scripts/01_3_quality_checks_bronze.sql
 ```
 - Documentation: Data versioning in git
 
@@ -47,7 +60,8 @@
 
 - Created a new schema [src_schema_bronze.yml] to use as a "source" and documentation in dbt
 
-### 02. Silver Layer
+_____________________
+## 02. Silver Layer
 The goal of this layer:
 
 - Understand How the tables connect to each other. To do this, a data integration model was created using 6 source tables, identifying keys that link each table.
@@ -56,7 +70,7 @@ The goal of this layer:
     <img src="./Images/integration_model.jpg" alt="Integration Model" width="500"/>
 </div>
 
-### Scripts to construct, clean, standarize, normalize eache table:
+### Scripts to construct, clean, standardize, normalize each table:
 ```
 - |scripts\02_silver
     - |4_1_checks_silver_crm_cust_info.sql
@@ -81,8 +95,9 @@ The goal of this layer:
         - |erp__px_cat_g1v2.sql
         - |schema_erp_silver.yml
 ```
+________________
 
-### 03. Gold Layer
+## 03. Gold Layer
 
 - Dimension Table
     - dim_products
@@ -104,15 +119,15 @@ The goal of this layer:
     - |schema_gold.yml
 ```
 
-### Final Dbt Lineage Graph
+## Final Dbt Lineage Graph
 
 <div align="center">
-    <img src="./Images/dbt_lineage_graph_layers.jpg" alt="DBT Lineage Graph" width="500"/>
+    <img src="./Images/dbt_lineage_graph_layers.jpg" alt="DBT Lineage Graph" width="800"/>
 </div>
 
+____________________________
 
-## SALES Schema - Star Schema ERD  
-### Gold Layer
+## SALES Schema - Star Schema ERD  (Gold Layer)
 
 ```mermaid
 erDiagram
