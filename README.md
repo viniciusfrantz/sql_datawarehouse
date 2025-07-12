@@ -50,19 +50,18 @@ The goal of this layer:
     <img src="./Images/integration_model.jpg" alt="Integration Model" width="500"/>
 </div>
 
-- The Scripts to construct each table, clean, standarize, normalize eache table is in
-|-scripts\02_silver
-                |-4_1_checks_silver_crm_cust_info.sql
-                |-04_2_checks_silver_crm_prd_info.sql
-                |-04_3_checks_silver_crm_sales_details.sql
-                |-04_4_checks_silver_erp_az212.sql
-                |-04_5_checks_silver_erp_loc_a101.sql
-                |-04_06_checks_silver_erp_px_cat_g1v2.sql
+### Scripts to construct, clean, standarize, normalize eache table:
+    - |scripts\02_silver
+        - |4_1_checks_silver_crm_cust_info.sql
+        - |04_2_checks_silver_crm_prd_info.sql
+        - |04_3_checks_silver_crm_sales_details.sql
+        - |04_4_checks_silver_erp_az212.sql
+        - |04_5_checks_silver_erp_loc_a101.sql
+        - |04_06_checks_silver_erp_px_cat_g1v2.sql
 
-
-- DBT models are in:
-> |-dbt_datawarehouse\models\silver\crm
-> |-dbt_datawarehouse\models\silver\erp
+### DBT Silver models by source
+> - |dbt_datawarehouse\models\silver\crm
+> - |dbt_datawarehouse\models\silver\erp
 
 
 ### 03. Gold Layer
